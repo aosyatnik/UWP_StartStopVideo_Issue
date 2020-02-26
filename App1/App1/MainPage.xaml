@@ -13,7 +13,7 @@
     </Page.DataContext>
 
     <StackPanel Orientation="Vertical">
-        <MediaElement x:Name="Video" Source="{Binding VideoPath}" AutoPlay="False" MediaOpened="Video_MediaOpened" />
+        <MediaPlayerElement x:Name="Video" Source="{Binding VideoPath}" AutoPlay="False" />
         <Button Click="Button_Click">Stop and start</Button>
     </StackPanel>
 </Page>

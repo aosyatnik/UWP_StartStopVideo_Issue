@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
+using Windows.Media.Core;
 
 namespace App1
 {
@@ -14,16 +15,17 @@ namespace App1
         };
 
         private string _videoPath;
-        public string VideoPath
+        public MediaSource VideoPath
         {
-            get { return _videoPath; }
-            set { Set(ref _videoPath, value); }
+            get { return MediaSource.CreateFromUri(new Uri(_videoPath)); }
+            set { Set(ref _videoPath, value.Uri.AbsoluteUri); }
         }
 
         internal void SelectRandomVideo()
         {
             var rnd = new Random();
-            VideoPath = _videos[rnd.Next(3)];
+            _videoPath = _videos[rnd.Next(3)];
+            RaisePropertyChanged(nameof(VideoPath));
         }
     }
 }

@@ -34,12 +34,12 @@ namespace App1
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             MainViewModel.SelectRandomVideo();
-            Video.Stop();
+            Video.MediaPlayer.Pause();
 
             // Workaround 1
             //await Task.Delay(300);
 
-            Video.Play();
+            Video.MediaPlayer.Play();
         }
 
         private void Video_MediaOpened(object sender, RoutedEventArgs e)
